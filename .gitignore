@@ -13,6 +13,9 @@ dist-electron
 .idea/
 .vscode/
 
+#
+venv
+
 # gitignore official
 #curl -o .gitignore https://raw.githubusercontent.com/github/gitignore/main/Node.gitignore
 # packaging apps always ignore
