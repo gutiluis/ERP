@@ -1,0 +1,32 @@
+{
+  "name": "erp_software_system",
+  "version": "1.0.0",
+  "description": "Magical desktop for end-operators",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "preview": "electron-vite preview",
+    "lint": "eslint . --ext .ts,.tsx",
+    "typecheck": "tsc --noEmit"
+  },
+  "keywords": [],
+  "author": "ERP Team",
+  "license": "MIT",
+  "_comment": "set with: npm install --save-dev",
+  "devDependencies": {
+    "autoprefixer": "^10.4.24",
+    "electron": "^40.2.1",
+    "electron-vite": "^5.0.0",
+    "eslint": "^10.0.0",
+    "postcss": "^8.5.6",
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
+  },
+  "dependencies": {
+    "build": "^0.1.4"
+  }
+}

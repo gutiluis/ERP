@@ -1,0 +1,5 @@
+/reg #lambda
+    registration service
+    
+        tenant management
+
