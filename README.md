@@ -1,3 +1,4 @@
+```bash
 erp-backend/
 ├── app/
 │   ├── __init__.py
@@ -20,7 +21,7 @@ erp-backend/
 ├── Dockerfile
 ├── docker-compose.yml
 └── .env # no python venv in production
-
+```
 
 ERP Backend System:
 A scalable and modular Enterprise Resource Planning (ERP) backend built with Python, SQLAlchemy, and SQL, containerized using Docker.
