@@ -39,11 +39,13 @@ class Invoice(TimeStampModel):
     public_invoice_id: Mapped[str] = mapped_column(
         String(50), unique=True, nullable=False, index=True
     )
+    
     # from customers table
     customer_fk_id: Mapped[int] = mapped_column(
         BigInteger, db.ForeignKey('customers.id'), nullable=False, index=True
     )
-
+    
+    # a relationship with annotations does not have nullable=False
     customer: Mapped["Customer"] = db.relationship(
         "Customer", back_populates="invoices"
     )

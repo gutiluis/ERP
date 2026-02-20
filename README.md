@@ -21,55 +21,72 @@ erp-backend/
 ├── docker-compose.yml
 └── .env # no python venv in production
 
-# colima docker. no docker destkop. everything is in colima
-colima ssh
 
-#
-all requirements of the project go inside Dockerfile
-
-#
-docker compose automatically creates a private network
-Network erp_software_system_default
-
-# to test model uniqueness of sqlalchemy mapping:
-from app.extensions import db
-from app.models.customers import Customer
-from sqlalchemy import text
-db.session.execute(text('show create table table_of_a_model'))
+ERP Backend System:
+A scalable and modular Enterprise Resource Planning (ERP) backend built with Python, SQLAlchemy, and SQL, containerized using Docker.
+Designed for single-tenant deployment initially, with architecture prepared for future transition into a full multi-tenant SaaS platform.
 
 
-
-#
-user class is functioning
-customer class is functioning
-invoice class
-
-#
-how to know if its an imperative or declarative table column
-
-#
-relationship loading techniques
-
-# there are declarative relationships and imperative relationships for mappings in sqlalchemy
-# there are declarative annotated relationships mappings in sqlalchemy orm2.0
+Overview:
+This ERP backend provides core business process management including:
+-User & Role Management
+-Inventory
+-Sales & Procurement
+-Finance
+-HR Modules
+-Reporting & Analytics
+The system follows a modular, service-oriented architecture to ensure scalability, maintainability, and future SaaS extensibility.
 
 
-#
-class Someclass(Base):
-    ...
-table creation is not business logic
+Tech Stack:
+-Language: Python 3.x
+-ORM: SQLAlchemy
+-Database: PostgreSQL / MySQL (configurable)
+-Containerization: Docker & Docker Compose
+-API Layer: REST (Flask / FastAPI – adjust if needed)
+-Authentication: JWT-based authentication
+-Migrations: Alembic
+
+Features:
+Authentication & Authorization
+JWT-based authentication
+Role-Based Access Control (RBAC)
+Secure password hashing
+
+Inventory Management:
+Product management
+Stock tracking
+Warehouse support
+
+Finance:
+Invoice generation
+Payment tracking
+Financial reports
+
+Sales & Procurement:
+Sales orders
+Purchase orders
+Vendor management
+
+Human Resources:
+Employee management
+Leave tracking
+Payroll foundation (extendable)
+
+Reporting:
+Aggregated business metrics
+Filterable reports
+Export-ready data endpoints
 
 
-#
-src/main/index.ts → Electron main process
-Responsible for creating windows, handling app lifecycle, IPC, menus, etc.
-Runs in Node context (not browser).
+Test Include:
+Unit tests
+Service layer tests
+API integration tests
 
-src/preload/index.ts → Preload script
-Runs in the browser context before the renderer loads.
-Provides a safe bridge between renderer and main process (for IPC).
-
-src/renderer/index.html -> UI frontend
-
-#
-electron.vite.config.ts from official documentation
+Security:
+Password hashing using bcrypt
+JWT access tokens
+Input validation
+ORM-based query protection against SQL injection
+Docker container isolation

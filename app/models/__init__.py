@@ -12,6 +12,6 @@ __all__ = [
     'Invoice',
     'InvoiceItem',
     'InvoiceStatus',
-    'InvoiceTax'
+    'InvoiceTax',
     'Payment',
 ]

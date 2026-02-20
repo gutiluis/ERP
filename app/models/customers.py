@@ -22,6 +22,7 @@ class Customer(TimeStampModel):
     # biginteger does not increment automatically in sqlite. and does not autogenerate the id
     id: Mapped[int] = mapped_column(BigInteger, primary_key=True, autoincrement=True)
 
+    # every customer has an invoice
     customer_id: Mapped[str] = mapped_column(
         String(50), index=True, unique=True, nullable=False
     )
