@@ -91,3 +91,6 @@ JWT access tokens
 Input validation
 ORM-based query protection against SQL injection
 Docker container isolation
+
+How to run eslint"
+run lint
