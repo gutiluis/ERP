@@ -79,7 +79,6 @@ Aggregated business metrics
 Filterable reports
 Export-ready data endpoints
 
-
 Test Include:
 Unit tests
 Service layer tests
@@ -92,5 +91,40 @@ Input validation
 ORM-based query protection against SQL injection
 Docker container isolation
 
-How to run eslint"
-run lint
+# GitHub Actions
+team wise
+repo wise
+production stability
+runs in github servers
+(CI) continuous integration / (CD) Continuous Deployment
+automating workflows
+code scanning workflows
+pages workflows
+
+# git pre-commit hook
+if the hook fails the commit is blocked
+automatically runs tools before commit
+
+# ESLint vs Vitest vs git pre-commit hook:
+ESLint: syntax/style/formatting before or during dev. unused variables, wrong imports, bad patterns, formatting rules, possible bugs, code style consistency. runs local 
+Vitest: testing behaviour when running tests. testing framework. Tests if the program works. runs local
+git pre-commit runs local
+
+
+# How to run eslint:
+
+
+# Electron for this project:
+- Does not run the main source file directly as is an index.js file it runs the built output file
+
+-
+
+
+
+# FRONTEND TEST RUNNERS: VITEST
+Files to test src/main/index.ts:
+# to test src/main/index.ts. run from the root project
+- npm install -D vitest
+- touch src/main/index.test.ts
+
+
