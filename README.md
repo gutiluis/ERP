@@ -54,8 +54,8 @@
 ```
 
 ERP Backend System:
-A scalable and modular Enterprise Resource Planning (ERP) backend built with Python, SQLAlchemy, and SQL, containerized using Docker.
-Designed for single-tenant deployment initially, with architecture prepared for future transition into a full multi-tenant SaaS platform.
+- A scalable and modular Enterprise Resource Planning (ERP) backend built with Python, SQLAlchemy, and SQL, containerized using Docker.
+- Designed for single-tenant deployment initially, with architecture prepared for future transition into a full multi-tenant SaaS platform.
 
 
 Overview:
@@ -70,91 +70,87 @@ The system follows a modular, service-oriented architecture to ensure scalabilit
 
 
 Tech Stack:
--Language: Python 3.x
--ORM: SQLAlchemy
--Database: PostgreSQL / MySQL (configurable)
--Containerization: Docker & Docker Compose
--API Layer: REST (Flask / FastAPI – adjust if needed)
--Authentication: JWT-based authentication
--Migrations: Alembic
+- Language: Python 3
+- ORM: SQLAlchemy
+- Database: PostgreSQL / MySQL (configurable)
+- Containerization: Docker & Docker Compose
+- API Layer: REST (Flask / FastAPI – adjust if needed)
+- Authentication: JWT-based authentication
+- Migrations: Alembic
 
 Features:
-Authentication & Authorization
-JWT-based authentication
-Role-Based Access Control (RBAC)
-Secure password hashing
+- Authentication & Authorization
+- JWT-based authentication
+- Role-Based Access Control (RBAC)
+- Secure password hashing
 
 Inventory Management:
-Product management
-Stock tracking
-Warehouse support
+- Product management
+- Stock tracking
+- Warehouse support
 
 Finance:
-Invoice generation
-Payment tracking
-Financial reports
+- Invoice generation
+- Payment tracking
+- Financial reports
 
 Sales & Procurement:
-Sales orders
-Purchase orders
-Vendor management
+- Sales orders
+- Purchase orders
+- Vendor management
 
 Human Resources:
-Employee management
-Leave tracking
-Payroll foundation (extendable)
+- Employee management
+- Leave tracking
+- Payroll foundation (extendable)
 
 Reporting:
-Aggregated business metrics
-Filterable reports
-Export-ready data endpoints
+- Aggregated business metrics
+- Filterable reports
+- Export-ready data endpoints
 
 Test Include:
-Unit tests
-Service layer tests
-API integration tests
+- Unit tests
+- Service layer tests
+- API integration tests
 
 Security:
-Password hashing using bcrypt
-JWT access tokens
-Input validation
-ORM-based query protection against SQL injection
-Docker container isolation
+- Password hashing using bcrypt
+- JWT access tokens
+- Input validation
+- ORM-based query protection against SQL injection
+- Docker container isolation
 
-# GitHub Actions
-team and repo oriented
-production stability
-runs in github servers
-(CI) continuous integration / (CD) Continuous Deployment
-automating workflows
-code scanning workflows
-pages workflows
-building and publishing packages
-deploying projects
 
-# git pre-commit hook
-if the hook fails the commit is blocked
-automatically runs tools before commit
+# how to run:
+# test mysql docker connection:
+docker ps
+docker images
+docker compose ps
+# run docker
+docker compose up -d db
 
 
 
 
 
+##########
+httpclient
+Multi-Tenant Architecture
+serve multiple customers (tenants)
+The envLoader.ts decides which backend endpoints or API keys to use per environment
 
-######### FRONTEND
+Separation of internal vs external services
+Localhost calls don’t need a persistent agent.
+External SaaS APIs use the global Agent for connection pooling and keep-alive.
+Centralized services
+ERPServices maps all endpoints for clarity and easy swapping per environment.
+Error handling + retries
+Automatically retries failed requests.
+JSON parsing built-in
+Works for both internal and external API responses.
 
 
-
-# ESLint vs Vitest vs git pre-commit hook:
-ESLint: syntax/style/formatting before or during dev. unused variables, wrong imports, bad patterns, formatting rules, possible bugs, code style consistency. runs local 
-Vitest: testing behaviour when running tests. testing framework. Tests if the program works. runs local
-git pre-commit runs local
-
-
-# How to run eslint:
-
-
-##############
 # package.json with electron in the project:
 as long as package.json has "out/main/index.js"
 package.json defines the runtime entry
@@ -173,8 +169,6 @@ the tsconfig.node.json file controls how typesscript compiles the electron main 
 separation prevents typescript resolving modules incorrectly
 path mismatches between node and vite
 subtle runtime errors
-
-
 
 
 #############################
@@ -196,36 +190,6 @@ bundled before execution
 # Electron for this project:
 - Does not run the main source file directly as is an index.js file it runs the built output file
 
--
-
-
-########################
-# Frontend unit test with: VITEST
-Files to test src/main/index.ts:
-# to test src/main/index.ts. run from the root project
-- npm install -D vitest
-- touch src/main/index.test.ts
-
-# Avoid record and playback testing tools, write a small set of UI integration tests. they resist changeability and obstruct abstractions
-# use record-playback tools to generate fragments of scripts
-# many more low-level unittests than high level through GUI
-# use jasmine to test javascrip units UI
-# 
-
-# vite uses esbuild. handles ESM internally. transpiles typescript automatically
-# as long as typescript is installed can run vitest for ts:
-# as long as the parent has the package.json the child will run it
-# as long as package.json has {"type": "module"}?????? runs without it too
-# add type: module when running the files directly with node.js
-# without type module node expects commonJS
-# with type: module node expects ES modules
-# can use the source file .ts and test file .js 
-# best practise the source file .ts and test file .ts in vitest for consistency
-# mix source and test file extensions for migrations from js to ts, gradual convertion, testing compiled output
-
-
-
-########################
 
 # tsconfig.json "target": "es2020" vs "target": "esnext"
 target esnext vs target es2020 differs in compilation amount
@@ -276,7 +240,7 @@ bundler executes/transforms the js
 
 ##########
 # ESM enterprise service management VS ESR enterprise resource planning
-complementary not competing
+complementary resources
 
 
 
@@ -310,5 +274,72 @@ Looks for .env.development or .env.production
 Falls back to .env if specific file doesn’t exist
 Loads variables into process.env (for main process)
 
-###
+
+
+
+############################# TESTING
+# GitHub Actions:
+team and repo oriented not like git pre-commit hook that is local
+production stability
+runs in github servers
+(CI) continuous integration / (CD) Continuous Deployment
+automating workflows
+code scanning workflows
+pages workflows
+building and publishing packages
+deploying projects
+
+# git pre-commit hook for local dev:
+if the hook fails the commit is blocked
+automatically runs tools before commit
+
+has hooks for local dev:
+eslint
+backend
+frontend vitest with unit tests
+frontend eslint
+
+
+## FRONTEND testing
+
+# ESLint vs Vitest vs git pre-commit hook:
+ESLint: syntax/style/formatting before or during dev. unused variables, wrong imports, bad patterns, formatting rules, possible bugs, code style consistency. runs local 
+Vitest: testing behaviour when running tests. testing framework. Tests if the program works. runs local
+git pre-commit runs local
+
+
+# How to run eslint:
+npx eslint
+
+
+########################
+# Frontend unit test with: VITEST
+Files to test src/main/index.ts:
+# to test src/main/index.ts. run from the root project
+- npm install -D vitest
+- touch src/main/index.test.ts
+
+# Avoid record and playback testing tools, write a small set of UI integration tests. they resist changeability and obstruct abstractions
+# use record-playback tools to generate fragments of scripts
+# many more low-level unittests than high level through GUI
+# use jasmine to test javascrip units UI
+# 
+
+# vite uses esbuild. handles ESM internally. transpiles typescript automatically
+# as long as typescript is installed can run vitest for ts:
+# as long as the parent has the package.json the child will run it
+# as long as package.json has {"type": "module"}?????? runs without it too
+# add type: module when running the files directly with node.js
+# without type module node expects commonJS
+# with type: module node expects ES modules
+# can use the source file .ts and test file .js 
+# best practise the source file .ts and test file .ts in vitest for consistency
+# mix source and test file extensions for migrations from js to ts, gradual convertion, testing compiled output
+
+
+
+########################
+
+
+### VITEST
 test each module first for frontend with vite mock
