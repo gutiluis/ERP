@@ -1,26 +1,56 @@
 ```bash
-erp-backend/
-├── app/
-│   ├── __init__.py
-│   ├── config.py
-│   ├── extensions.py
-│   ├── models/
-│   │   ├── __init__.py
-│   │   ├── user.py
-│   │   ├── role.py
-│   │   ├── customer.py
-│   │   ├── product.py
-│   │   ├── invoice.py
-│   │   └── payment.py
-│   ├── routes/
-│   │   ├── __init__.py
-│   │   └── health.py
-│   └── main.py
-├── migrations/          # later (Flask-Migrate)
-├── requirements.txt
-├── Dockerfile
+.
+├── .env.example
+├── .github
+│   └── workflows
+│       └── test.yml
+├── .gitignore
+├── app
+│   ├── __init__.py
+│   ├── config.py
+│   ├── extensions.py
+│   ├── main.py
+│   ├── models
+│   │   ├── __init__.py
+│   │   ├── base.py
+│   │   ├── customers.py
+│   │   ├── invoice.py
+│   │   ├── payments.py
+│   │   ├── products.py
+│   │   └── user.py
+│   └── routes
+│       └── health.py
 ├── docker-compose.yml
-└── .env # no python venv in production
+├── Dockerfile
+├── electron.vite.config.ts
+├── eslint.config.mjs
+├── package.json
+├── postcss.config.js
+├── README.md
+├── requirements.txt
+├── src
+│   ├── main
+│   │   ├── index.ts
+│   │   ├── modules
+│   │   └── tests
+│   ├── preload
+│   │   └── index.ts
+│   └── renderer
+│       ├── assets
+│       ├── index.html
+│       └── src
+├── tailwind.config.js
+├── tests
+│   ├── __init__.py
+│   ├── conftest.py
+│   ├── setup_test_db.py
+│   ├── test_connection.py
+│   ├── test_customer.py
+│   ├── test_invoice.py
+│   ├── test_products.py
+│   └── test_user.py
+├── tsconfig.json
+└── tsconfig.node.json
 ```
 
 ERP Backend System:

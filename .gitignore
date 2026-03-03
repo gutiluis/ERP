@@ -8,12 +8,16 @@ venv/
 .env
 .env.*
 *.pyc
-.env.example
 .mypy_cache/
 instance/
 .venv/
 #
+.DS_Store/
 .DS_Store
+# typescript
+tsconfig.node.tsbuildinfo
+*.tsbuildinfo
+#
 
 #
 dist-electron
@@ -30,7 +34,7 @@ dist-electron
 *.dmg
 *.exe
 *.AppImage
-
+.git
 # Logs
 logs/
 *.log
